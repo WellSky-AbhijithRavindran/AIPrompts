@@ -1,0 +1,5 @@
+Program #file:hbb1500c.rpgle is written in SQLRPGLE and generates the Bill document for claims. Bill exceptions are used to selectively format the bill document. We need to analyse the use of bill exception 861 in #file:hbb1500c.rpgle. 
+
+Make the similar changes in HCSFILE after analysis. Refer implementation of srlicense subroutine to fetch the 'SNPI' license code instead of HMFLICE2. Instead of using the file HMPNPI, refer the implementation of fetching the NPI provider details from RFR1 using npi_hmpnpi function. If possible add the code next to the bill exception code logic close to 861. 
+
+Add modification log to the end of the existing log and add the author details as 'Saikiran Parupalli ICON-967', the description as 'Added Bill Exception 861 ' and modification date as current date matching the existing format. 

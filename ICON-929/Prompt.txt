@@ -1,0 +1,5 @@
+Program @/BE\ Comp/RES/hbb1500c.rpgle  is written in SQLRPGLE and generates the Bill document for claims. Bill exceptions are used to selectively format the bill document. We need to analyse the use of bill exception 194 in RESFILE. Make the similar changes in HCSFILE after analysis and add the code next to the bill exception code logic close to 194. 
+
+  
+
+Add modification log to the end of the existing log and add the author details as 'Saikiran Parupalli ICON-929', the description as 'Added Bill Exception 194 to not check off Sex Code in Box 11A' and modification date as current date matching the existing format.

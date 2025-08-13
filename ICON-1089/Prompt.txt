@@ -1,0 +1,9 @@
+Program #file:hahivsgr.sqlrpgle  is written in SQLRPGLE which is used to save the group header information of service verifications. The group header information is saved in the file #file:hapivsgr.pf . We need to add a new field to the group header information file to save the group header type BGRGTP.  
+
+  
+
+Changes include adding a new subfield GROUPHDRTYP to the grpGrd data structure. Changes are required similar to the existing file authNumber. Validations to have the group header type by cross referencing the XFXTABL functionality with table code as 'IVTP' and set the error code '00003962' in case invalid. If the group header type is valid, verify using embedded sql whether a record exist in file HAPIVSVC for the level6, account and group number and generate error if record exist. 
+
+  
+
+All new field names needs to be in camelcase. 
