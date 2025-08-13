@@ -1,0 +1,158 @@
+     A****************************************************************
+     A**                                                            **
+     A**       HAPIVSVC - INSURANCE COVERAGE BY SERVICE FILE        **
+     A**                                                            **
+     A**       COPYRIGHT - 2005 - HEALTH CARE SOFTWARE, INC.        **
+     A****************************************************************
+     **                                                              **
+     **  01/12/2015  Brian Shore (unlabled change from GOL)          **
+     **             -added field BSVRVC                              **
+     **                                                              **
+     **  01/14/2019  Tom Gorman  HDEV- 28069                         **
+     **              - Copied fields from HAPDICT                    **
+     **              - Changed bsvcmnt from 50 to 250 characters     **
+     **                                                              **
+     **  09/23/2020  Michelle Palmieri  HDEV-39247                   **
+     **             -increase reimbursement type field size          **
+     **                                                              **
+     **  11/17/2024  Abhijith Ravindran ICON-549                     **
+     **             -Added new field for Authorization type          **
+     **                                                              **
+     **  01/09/2025  Abhijith Ravindran ICON-543                     **
+     **             -Added fields for new Discipline types           **
+     **                                                              **
+     **  05/19/2025  Alex Price         ICON-880                     **
+     **             -Added Info Only Field                           **
+     **                                                              **
+     ******************************************************************
+     A
+     A                                      UNIQUE
+     A          R HAFIVSVC                  TEXT('INSURANCE COVERAGE BY SERVICE-
+     A                                      FILE')
+     A
+     A            BSVLV6         6P 0       TEXT('-MAPPING LEVEL 6')
+     A                                      COLHDG('LEVEL 6')
+     A            BSVACC        12P 0       TEXT('-ACCOUNT NUMBER')
+     A                                      COLHDG('ACT' 'NUMBER')
+     A            BSVMRN         9P 0       TEXT('-MEDICAL RECORD NUMBER')
+     A                                      COLHDG('MED REC' 'NUMBER')
+     A            BSVPYR         6P 0       TEXT('-INSURANCE PAYOR #')
+     A                                      COLHDG('INS' 'PAYOR')
+     A            BSVPLN         5P 0       TEXT('-INSURANCE PLAN #')
+     A                                      COLHDG('INS' 'PLAN')
+     A            BSVPOL        20A         TEXT('-POLICY NUMBER')
+     A                                      COLHDG('POLICY NUMBER')
+     A            BSVFSQ         5P 0       TEXT('-FILE SEQUENCE NUMBER')
+     A                                      COLHDG('FILE' 'SEQ NUM')
+     A            BSVSEQ         4P 0       TEXT('-RANK SEQUENCE NUMBER')
+     A                                      COLHDG('SEQ NUM')
+     A            BSVEFF         8P 0       TEXT('-EFFECTIVE DATE OF COVERAGE')
+     A                                      COLHDG('EFF DATE')
+     A            BSVEND         8P 0       TEXT('-END DATE OF COVERAGE')
+     A                                      COLHDG('END DATE')
+     A            BSVCOV         5P 0       TEXT('-TOTAL COVERED UNITS')
+     A                                      COLHDG('COVERED' 'UNITS')
+     A            BSVSUP         5P 0       TEXT('-SUPPLEMENTAL UNITS')
+     A                                      COLHDG('SUPP' 'UNITS')
+     A            BSVPRC         8A         TEXT('-PROCEDURE')
+     A                                      COLHDG('PROCEDURE')
+     A            BSVRVC         4P 0       TEXT('-REVENUE CODE')
+     A                                      COLHDG('REV CODE')
+     A            BSVGPN        10P 0       TEXT('-GROUP NUMBER')
+     A                                      COLHDG('GROUP' 'NUMBER')
+     A            BSVNAM        12A         TEXT('-GROUP NAME')
+     A                                      COLHDG('GROUP NAME')
+     A            BSVAUT        25A         TEXT('-AUTHORIZATION NUMBER')
+     A                                      COLHDG('AUTH' 'NUMBER')
+     A            BSVRTP         5A         TEXT('-REIMBURSEMENT TYPE')
+     A                                      COLHDG('REIM' 'TYPE')
+     A            BSVRAM         9P 2       TEXT('-REIMBURSEMENT AMOUNT')
+     A                                      COLHDG('REIM' 'AMOUNT')
+     A            BSVSAM         9P 2       TEXT('-SUPPLEMENTAL DOLLARS')
+     A                                      COLHDG('SUPP' 'DOLLARS')
+     A            BSVAC#         9P 0       TEXT('-AUTHORIZATION CONTACT#')
+     A                                      COLHDG('AUTH' 'CNT#')
+     A            BSVOVA         1A         TEXT('-OVER VERI/ALLOWANCE FLAG')
+     A                                      COLHDG('OVER' 'V/ALLW')
+     A            BSVCRB        10A         TEXT('-CREATED BY')
+     A                                      COLHDG('CRTE' 'USER')
+     A            BSVCRD         8P 0       TEXT('-CREATION DATE')
+     A                                      COLHDG('CRTE' 'DATE')
+     A            BSVCRT         6P 0       TEXT('-CREATION TIME')
+     A                                      COLHDG('CRTE' 'TIME')
+     A            BSVCHB        10A         TEXT('-CHANGED BY')
+     A                                      COLHDG('CHGE' 'USER')
+     A            BSVCHD         8P 0       TEXT('-CHANGED DATE')
+     A                                      COLHDG('CHGE' 'DATE')
+     A            BSVCHT         6P 0       TEXT('-CHANGED TIME')
+     A                                      COLHDG('CHGE' 'TIME')
+     A            BSVDLT         1A         TEXT('-DELETE FLAG')
+     A                                      COLHDG('DLT' 'FLG')
+     A            BSVDDT         8P 0       TEXT('-DELETE DATE')
+     A                                      COLHDG('DLT' 'DTE')
+     A            BSVDBY        10A         TEXT('-DELETED BY')
+     A                                      COLHDG('DLT' 'USER')
+     A            BSVDTM         6P 0       TEXT('-DELETE TIME')
+     A                                      COLHDG('DLT' 'TIME')
+     A            BSVFTD         8P 0       TEXT('-FUTURE DATE')
+     A                                      COLHDG('FUTR' 'DATE')
+     A            BSVFAM         9P 2       TEXT('-FUTURE AMOUNT')
+     A                                      COLHDG('FUTR' 'AMNT')
+     A            BSVLEN         5P 0       TEXT('-LENGTH OF VERIFICATION')
+     A                                      COLHDG('VERIF' 'LENGTH')
+     A            BSVLTP         1A         TEXT('-LENGTH OF VERIF TYPE')
+     A                                      COLHDG('LENGTH' 'TYPE')
+     A            BSVLOC         2A         TEXT('-LOCATION FLAG')
+     A                                      COLHDG('LOC' 'FLAG')
+     A            BSVSTS         2A         TEXT('-VERIFICATION STATUS')
+     A                                      COLHDG('-STATUS')
+     A            BSVVBL         1A         TEXT('-VOUCHER BILLING')
+     A                                      COLHDG('VOUCHER' 'BILL')
+     A            BSVADC         4A         TEXT('-ADD-ON CODE')
+     A                                      COLHDG('ADD-ON' 'CODE')
+     A            BSVHST         1A         TEXT('-HISTORY STATUS')
+     A                                      COLHDG('HIS' 'STS')
+     A            BSVFUT        20A         TEXT('-FUTURE USE')
+     A                                      COLHDG('FUTR' 'USE')
+     A            BSVCMT       250A         TEXT('-COMMENT')
+     A                                      COLHDG('COMMENT')
+     A            BSVPTD         1A         TEXT('-PT DISCIPLINE')
+     A                                      COLHDG('PT' 'DIS')
+     A            BSVOTD         1A         TEXT('-OT DISCIPLINE')
+     A                                      COLHDG('OT' 'DIS')
+     A            BSVSPD         1A         TEXT('-SP DISCIPLINE')
+     A                                      COLHDG('SP' 'DIS')
+     A            BSVSVT         1A         TEXT('-SVC VERIFY TYPE')
+     A                                      COLHDG('SERVICE' 'VERIFICATION'
+     A                                       'TYPE')
+     A            BSVSWD         1A         TEXT('-SW DISCIPLINE')
+     A                                      COLHDG('SW' 'DIS')
+     A            BSVBHD         1A         TEXT('-BH DISCIPLINE')
+     A                                      COLHDG('BH' 'DIS')
+     A            BSVACD         1A         TEXT('-AC DISCIPLINE')
+     A                                      COLHDG('AC' 'DIS')
+     A            BSVTRD         1A         TEXT('-TR DISCIPLINE')
+     A                                      COLHDG('TR' 'DIS')
+     A            BSVNRD         1A         TEXT('-NR DISCIPLINE')
+     A                                      COLHDG('NR' 'DIS')
+     A            BSVCMD         1A         TEXT('-CM DISCIPLINE')
+     A                                      COLHDG('CM' 'DIS')
+     A            BSVVCD         1A         TEXT('-VC DISCIPLINE')
+     A                                      COLHDG('VC' 'DIS')
+     A            BSVPHD         1A         TEXT('-PH DISCIPLINE')
+     A                                      COLHDG('PH' 'DIS')
+     A            BSVTCD         1A         TEXT('-TC DISCIPLINE')
+     A                                      COLHDG('TC' 'DIS')
+     A            BSVIOA         1A         TEXT('-INFO ONLY')
+     A                                      COLHDG('INFO' 'ONLY')
+     A
+     A          K BSVLV6
+     A          K BSVACC
+     A          K BSVSEQ
+     A          K BSVEFF
+     A          K BSVPYR
+     A          K BSVPLN
+     A          K BSVPOL
+     A          K BSVPRC
+     A          K BSVRVC
+     A          K BSVFSQ

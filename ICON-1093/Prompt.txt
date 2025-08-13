@@ -1,0 +1,39 @@
+FIRST RUN
+---------
+Program #file:hahivsvc.sqlrpgle  is written in SQLRPGLE and is used to save the service verification details to the file #file:hapivsvc.pf . Service verifications are associated with a group header if the field BSVGPN has a value. While saving the service verification the user can set a value for the BSVGPN to associate the service verification with a group number. New changes require the group header type field BGRGTP from file #file:hapivsgr.pf  to have the same value as the service verification type field BSVSVT while saving the information.
+
+We need to make code changes in the program #file:hahivsvc.sqlrpgle  to validate using embedded SQL whether the group header type and service verification type are same. If the types are different, write the error message '00003645'. 
+
+Add modification log to the end of the existing log and add the author details as 'Abhijith Ravindran ICON-1093', the description as 'Service Verification Maintenance changes to validate the group header type and modify the quantity validations.'.
+
+============================================================================================================================================================================================
+
+SECOND RUN
+----------
+Program #file:hahivsvc.sqlrpgle  is written in SQLRPGLE and is used to save the service verification details to the file #file:hapivsvc.pf . Service verifications are associated with a group header if the field BSVGPN has a value. While saving the service verification the user can set a value for the BSVGPN to associate the service verification with a group number. New changes require the group header type field BGRGTP from file #file:hapivsgr.pf  to have the same value as the service verification type field BSVSVT while saving the information.
+
+We need to make code changes in the program HAHIVSVC to validate using embedded SQL whether the group header type and service verification type are same. If the types are different, write the error message '00003965'. 
+
+We also need to modify the existing validations to allow user to have the service verification quantity to use the maximum quantity as the group header quantity instead of adding up the quantities of other service verifications using the same associated group header.
+
+Ensure that the embedded sql statements uses 'FETCH FIRST ROW ONLY' wherever possible to reduce the number of IO operations using the query. Also the sql queries uses level6 and account fields along with the group number while fetching the details from the group header file.
+
+Add modification log to the end of the existing log and add the author details as 'Abhijith Ravindran ICON-1093', the description as 'Service Verification Maintenance changes to validate the group header type and modify the quantity validations.' and modification date as current date matching the existing format.
+
+============================================================================================================================================================================================
+
+THIRD APPROACH
+--------------
+Objective
+Program #file:hahivsvc.sqlrpgle   is written in SQLRPGLE and is used to save the service verification details to the file #file:hapivsvc.pf . Service verifications are associated with a group header if the field BSVGPN has a value. While saving the service verification the user can set a value for the BSVGPN to associate the service verification with a group number. New changes require the group header type field BGRGTP from file #file:hapivsgr.pf  to have the same value as the service verification type field BSVSVT while saving the information.
+
+Implementation Approach
+We need to make code changes in the program #file:hahivsvc.sqlrpgle  to validate using embedded SQL whether the group header type and service verification type are same. If the types are different, write the error message '00003965' for the service verification type field. 
+
+We also need to comment the existing logic of adding up the quantities of other service verifications using the same associated group header. The validations should used the respective units and compare it to the group header units.
+
+Embedded SQL considerations
+Ensure that the embedded sql statements uses 'FETCH FIRST ROW ONLY' wherever possible to reduce the number of IO operations using the query. Also the sql queries uses level6 and account fields along with the group number while fetching the details from the group header file.
+
+Modification Log considerations
+Add modification log to the end of the existing log and add the author details as 'Abhijith Ravindran ICON-1093', the description as 'Service Verification Maintenance changes to validate the group header type and modify the quantity validations.' and modification date as current date matching the existing format.
