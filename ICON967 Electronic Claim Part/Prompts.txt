@@ -1,0 +1,21 @@
+Prompt 1:
+Program #file:e5b5010.rpgle is written in SQLRPGLE and builds the information necessary for the electronic claims. We are looking to use a file field B5FFL1 to identify if the bill exception 861 is on or not. Analyse how B5FFL1 field is used.
+
+Make the similar changes in #file:e5b5010.sqlrpgle after analysis. B5FFL1 field name should be changed to B5SNPI while making the changes.
+For the pattern #DOCN, Using the doctor number, If the exception is on, refer how srlicense subroutine is implemented in #file:hbb1500c.sqlrpgle to fetch the 'SNPI' license code instead of fetching from HMLLICE. Using that license code, fetch the NPI provider name. Instead of using HMPNPI file, Refer the implementation of fetching the NPI provider details from #file:hmwmaup.sqlrpgle using NPI_HMPNPI function. If the exception is off, keep the existing logic of reading HMPMAMS file with the doctor number to fetch the name.
+
+For the pattern #DOCL, Using the doctor number, if the exception is on, Do what is done in the pattern #DOCN to fetch the SNPI license code. If the exception is off, then keep the existing changes of reading HMPMAMS file with the doctor number and fetching the NPI license number. 
+ 
+Add modification log to the end of the existing log and add the author details as 'Saikiran Parupalli ICON-967', the description as 'Added Bill Exception 861 ' and modification date as current date matching the existing format.
+
+
+Prompt 2:
+Program #file:e5b5010.rpgle is written in SQLRPGLE and builds the information necessary for the electronic claims. We are looking to use a file field B5FFL1 from #file:e5p1500.pf to identify if the bill exception 861 is on or not. Analyse how B5FFL1 field is used.
+
+Make the similar changes in #file:e5b5010 - 2nd Prompt.sqlrpgle after analysis. New field B5SNPI should be created in #file:e5p1500.pf with the text and column heading 'SNPI Flag'. B5SNPI field should be used instead of B5FFL1 while making the program changes.
+For the pattern #DOCN, Using the doctor number, If the exception is on, fetch the 'SNPI' license code from HMLLICE. Using that license code, fetch the NPI provider name. Instead of using HMPNPI file, Refer the implementation of fetching the NPI provider details from #file:hmwmaup.sqlrpgle using NPI_HMPNPI function. If the exception is off, keep the existing logic of reading HMPMAMS file with the doctor number to fetch the name.
+
+For the pattern #DOCL, Using the doctor number, if the exception is on, Do what is done in the pattern #DOCN to fetch the SNPI license code. If the exception is off, then keep the existing changes of reading HMPMAMS file with the doctor number and fetching the NPI license number. 
+ 
+Add modification log to the end of the existing log and add the author details as 'Saikiran Parupalli ICON-967', the description as 'Added new field B5SNPI which displays the supervisor
+name when the bill exception 861 is on and the physician has the SNPI license code' and modification date as current date matching the existing format.
