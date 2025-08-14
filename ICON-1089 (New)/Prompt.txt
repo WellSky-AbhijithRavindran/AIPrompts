@@ -1,0 +1,47 @@
+Development Prompt: Add Group Header Type to Service Verification
+Program: #file:hahivsgr.sqlrpgle
+Language: SQLRPGLE
+Purpose: Enhance the service verification group header functionality by introducing a new field to store Group Header Type (BGRGTP).
+
+File & Structure Updates
+- Target File: #file:hapivsgr.pf
+- Add a new field: groupHdrTyp (camelCase format) to store the Group Header Type.
+- Data Structure Update:
+- Modify the grpGrd data structure to include the new subfield groupHdrTyp.
+- Ensure the implementation mirrors the structure and handling of the existing authNumber field.
+
+Validation Logic
+- Cross-Reference Validation:
+- Use XFXTABL functionality to validate groupHdrTyp against table code 'IVTP'.
+- If invalid, set error code '00003962'.
+- Existence Check via Embedded SQL:
+- If groupHdrTyp is valid, perform an embedded SQL query to check for existing records in HAPIVSVC.
+- Match on level6, account, and groupNumber.
+- If a record exists, trigger appropriate error handling.
+
+Field Naming Convention
+- All new fields must follow camelCase naming.
+- Example: groupHdrTyp instead of GROUPHDRTYP.
+
+Implementation Notes
+- Ensure new logic is modular and follows existing coding standards.
+- Place validation and SQL logic in the appropriate section of the program, maintaining readability and maintainability.
+- Comment clearly to indicate new additions and their purpose.
+
+Modification Log Entry
+At the end of the existing modification log, append the following entry:
+MODIFICATION LOG
+----------------
+<existing entries>
+
+Date: [Insert current date in existing format]
+Author: Abhijith Ravindran ICON-929
+Description: 
+Added new field for saving the Group Header Type  
+Modified the validations while saving the Group to allow only non blank Group Header Type, allow user to modify group header type for groups not already linked.                                           
+
+
+Tip: Use the same date format as previous entries to maintain consistency.
+
+
+
