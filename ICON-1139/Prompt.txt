@@ -1,0 +1,11 @@
+Using the context #file:Revenue_Code_Mapping_Analysis.md modify the program #file:HXHPYINQ.SQLRPGLE to include procedure code mapping changes. Changes are similar to the revenue code mapping. Procedure code mapping can be fetchched from the file tbprcmap. (Refer #file:HBWPRCMP.SQLRPGLE for sample logic and filters). Highlight all the changes that are needed in the program #file:HXHPYINQ.SQLRPGLE for this request before I provide approval to implement. Ensure detailed and thorough self check of the changes. Use exisiting XFXPROC program to get the procedure code descriptions as in the existing logic.
+
+====
+
+The implementation of XFXPROC is incorrect. Please check the existing implementation in the program.
+
+====
+No need to include the file declaration for TBPRCMAP since it is not used for native operations.
+
+===
+Please implement the changes in the program #file:HXHPYINQ.SQLRPGLE with the modification log for the date as todays date and Programmer details as Abhijith Ravindran (ICON-1139). Add the description as 'Modified the program to add procedure code mappings'.
